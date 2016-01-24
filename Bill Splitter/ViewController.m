@@ -28,6 +28,14 @@
     self.textField.delegate = self;
     
     [self.textField becomeFirstResponder];
+    
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleDefault;
+    numberToolbar.items = @[
+                            [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                            [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(textFieldShouldReturn:)]];
+    [numberToolbar sizeToFit];
+    self.textField.inputAccessoryView = numberToolbar;
 
 }
 

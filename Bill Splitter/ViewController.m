@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *peopleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @property (weak, nonatomic) IBOutlet UISlider *tipSlider;
+@property (nonatomic, strong) NSArray *peopleNumbers;
 
 @end
 
@@ -25,6 +26,8 @@
     [super viewDidLoad];
     
     self.textField.delegate = self;
+    
+    [self.textField becomeFirstResponder];
 
 }
 
@@ -37,7 +40,6 @@
     NSDecimalNumber *billAmount = [[NSDecimalNumber alloc] initWithString:self.textField.text];
     NSDecimalNumber *numberOfPeople = [[NSDecimalNumber alloc] initWithFloat:self.slider.value];
     NSDecimalNumber *tipAmount = [[NSDecimalNumber alloc] initWithFloat:self.tipSlider.value + 1];
-    NSLog(@"%@", tipAmount);
     NSDecimalNumber *result = [[billAmount decimalNumberByMultiplyingBy:tipAmount] decimalNumberByDividingBy:numberOfPeople];
     NSNumberFormatter *formatResult = [[NSNumberFormatter alloc] init];
     formatResult.numberStyle = NSNumberFormatterCurrencyStyle;
@@ -49,24 +51,22 @@
     NSDecimalNumber *billAmount = [[NSDecimalNumber alloc] initWithString:self.textField.text];
     NSDecimalNumber *numberOfPeople = [[NSDecimalNumber alloc] initWithFloat:self.slider.value];
     NSDecimalNumber *tipAmount = [[NSDecimalNumber alloc] initWithFloat:self.tipSlider.value + 1];
-    NSLog(@"%@", tipAmount);
     NSDecimalNumber *result = [[billAmount decimalNumberByMultiplyingBy:tipAmount] decimalNumberByDividingBy:numberOfPeople];
     NSNumberFormatter *formatResult = [[NSNumberFormatter alloc] init];
     formatResult.numberStyle = NSNumberFormatterCurrencyStyle;
     self.label.text = [NSString stringWithFormat:@"Each person pays: %@", [formatResult stringFromNumber:result]];
 }
 
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.textField resignFirstResponder];
     return YES;
 }
 
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     NSDecimalNumber *billAmount = [[NSDecimalNumber alloc] initWithString:self.textField.text];
     NSDecimalNumber *numberOfPeople = [[NSDecimalNumber alloc] initWithFloat:self.slider.value];
     NSDecimalNumber *tipAmount = [[NSDecimalNumber alloc] initWithFloat:self.tipSlider.value + 1];
-    NSLog(@"%@", tipAmount);
     NSDecimalNumber *result = [[billAmount decimalNumberByMultiplyingBy:tipAmount] decimalNumberByDividingBy:numberOfPeople];
     NSNumberFormatter *formatResult = [[NSNumberFormatter alloc] init];
     formatResult.numberStyle = NSNumberFormatterCurrencyStyle;

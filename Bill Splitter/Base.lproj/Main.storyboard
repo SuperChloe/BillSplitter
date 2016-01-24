@@ -40,13 +40,13 @@
                                     <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="xAy-3k-vYr"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of people" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nat-7h-6PQ">
-                                <rect key="frame" x="103" y="136" width="114" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split between 2 people" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nat-7h-6PQ">
+                                <rect key="frame" x="67" y="136" width="185" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80x-Bs-Aw2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15% Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80x-Bs-Aw2">
                                 <rect key="frame" x="128" y="231" width="64" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -64,7 +64,7 @@
                             <constraint firstItem="NHW-mn-Cen" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="46" id="269-F1-c7t"/>
                             <constraint firstItem="PhD-ew-lfm" firstAttribute="top" secondItem="Nat-7h-6PQ" secondAttribute="bottom" constant="21" id="3KW-7g-z20"/>
                             <constraint firstItem="PhD-ew-lfm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="4gQ-mU-O19"/>
-                            <constraint firstItem="Nat-7h-6PQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="103" id="7Pd-F8-oJd"/>
+                            <constraint firstItem="Nat-7h-6PQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="67" id="7Pd-F8-oJd"/>
                             <constraint firstAttribute="trailing" secondItem="qyY-iO-saF" secondAttribute="trailing" constant="20" id="7QN-h6-d7A"/>
                             <constraint firstItem="PhD-ew-lfm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BCw-mz-gGT"/>
                             <constraint firstAttribute="trailing" secondItem="80x-Bs-Aw2" secondAttribute="trailing" constant="128" id="Bjw-cc-Oba"/>
@@ -80,7 +80,7 @@
                             <constraint firstItem="qyY-iO-saF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Y7E-4h-pKU"/>
                             <constraint firstAttribute="trailing" secondItem="PhD-ew-lfm" secondAttribute="trailing" constant="20" id="bCc-02-V2a"/>
                             <constraint firstItem="TPH-zp-GaO" firstAttribute="top" secondItem="80x-Bs-Aw2" secondAttribute="bottom" constant="16" id="cpC-t4-HdN"/>
-                            <constraint firstAttribute="trailing" secondItem="Nat-7h-6PQ" secondAttribute="trailing" constant="103" id="eiz-Uq-3CQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Nat-7h-6PQ" secondAttribute="trailing" constant="68" id="eiz-Uq-3CQ"/>
                             <constraint firstItem="qyY-iO-saF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="mk1-7O-YRS"/>
                             <constraint firstItem="TPH-zp-GaO" firstAttribute="top" secondItem="80x-Bs-Aw2" secondAttribute="bottom" constant="16" id="pCS-z7-zZs"/>
                             <constraint firstItem="Nat-7h-6PQ" firstAttribute="top" secondItem="NHW-mn-Cen" secondAttribute="bottom" constant="40" id="q5C-5k-lJ7"/>

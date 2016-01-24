@@ -27,6 +27,13 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)calculateSplitAmout:(id)sender {
+    NSDecimalNumber *billAmount = [[NSDecimalNumber alloc] initWithString:self.textField.text];
+    NSDecimalNumber *numberOfPeople = [[NSDecimalNumber alloc] initWithFloat:self.slider.value];
+    NSDecimalNumber *result = [billAmount decimalNumberByDividingBy:numberOfPeople];
+    NSLog(@"%@", result);
+    NSNumberFormatter *formatResult = [[NSNumberFormatter alloc] init];
+    formatResult.numberStyle = NSNumberFormatterCurrencyStyle;
+    self.label.text = [NSString stringWithFormat:@"Each person pays: %@", [formatResult stringFromNumber:result]];
 }
 
 @end

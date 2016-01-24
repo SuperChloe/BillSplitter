@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NHW-mn-Cen">
-                                <rect key="frame" x="20" y="20" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter bill amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NHW-mn-Cen">
+                                <rect key="frame" x="20" y="66" width="280" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="acz-YO-Cx0"/>
                                 </constraints>
@@ -26,51 +26,87 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="PhD-ew-lfm">
-                                <rect key="frame" x="18" y="70" width="284" height="31"/>
+                                <rect key="frame" x="18" y="146" width="284" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="BUc-Fb-UDx"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="xAy-3k-vYr"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgq-mw-vvR">
-                                <rect key="frame" x="117" y="132" width="87" height="30"/>
+                                <rect key="frame" x="117" y="295" width="87" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QGH-xp-Axi"/>
                                     <constraint firstAttribute="width" constant="87" id="u3b-BN-WsN"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Calculate!"/>
                                 <connections>
                                     <action selector="calculateSplitAmout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VDh-Xw-jgd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyY-iO-saF">
-                                <rect key="frame" x="20" y="202" width="280" height="21"/>
+                                <rect key="frame" x="20" y="358" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of people" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nat-7h-6PQ">
+                                <rect key="frame" x="103" y="104" width="114" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80x-Bs-Aw2">
+                                <rect key="frame" x="128" y="199" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.14999999999999999" minValue="0.0" maxValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TPH-zp-GaO">
+                                <rect key="frame" x="18" y="236" width="284" height="31"/>
+                                <connections>
+                                    <action selector="tipSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="x5I-tx-vlR"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NHW-mn-Cen" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="269-F1-c7t"/>
+                            <constraint firstItem="NHW-mn-Cen" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="46" id="269-F1-c7t"/>
+                            <constraint firstItem="PhD-ew-lfm" firstAttribute="top" secondItem="Nat-7h-6PQ" secondAttribute="bottom" constant="21" id="3KW-7g-z20"/>
                             <constraint firstItem="PhD-ew-lfm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="4gQ-mU-O19"/>
+                            <constraint firstItem="Nat-7h-6PQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="103" id="7Pd-F8-oJd"/>
                             <constraint firstItem="PhD-ew-lfm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BCw-mz-gGT"/>
+                            <constraint firstAttribute="trailing" secondItem="80x-Bs-Aw2" secondAttribute="trailing" constant="128" id="Bjw-cc-Oba"/>
                             <constraint firstItem="qyY-iO-saF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D3M-Wv-b8o"/>
-                            <constraint firstItem="PhD-ew-lfm" firstAttribute="top" secondItem="NHW-mn-Cen" secondAttribute="bottom" constant="20" id="Exc-aC-svt"/>
-                            <constraint firstItem="Qgq-mw-vvR" firstAttribute="top" secondItem="PhD-ew-lfm" secondAttribute="bottom" constant="32" id="R6F-xN-M9a"/>
+                            <constraint firstItem="PhD-ew-lfm" firstAttribute="top" secondItem="NHW-mn-Cen" secondAttribute="bottom" constant="50" id="Exc-aC-svt"/>
+                            <constraint firstAttribute="trailing" secondItem="TPH-zp-GaO" secondAttribute="trailing" constant="20" id="JsP-VQ-fb2"/>
+                            <constraint firstItem="TPH-zp-GaO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="MPq-ov-1LV"/>
+                            <constraint firstItem="Qgq-mw-vvR" firstAttribute="top" secondItem="PhD-ew-lfm" secondAttribute="bottom" constant="119" id="R6F-xN-M9a"/>
                             <constraint firstAttribute="trailing" secondItem="NHW-mn-Cen" secondAttribute="trailing" constant="20" id="TSU-W1-2We"/>
-                            <constraint firstItem="qyY-iO-saF" firstAttribute="top" secondItem="Qgq-mw-vvR" secondAttribute="bottom" constant="40" id="UOR-IA-Jkz"/>
+                            <constraint firstItem="80x-Bs-Aw2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="128" id="Tdp-gr-LmP"/>
+                            <constraint firstItem="80x-Bs-Aw2" firstAttribute="top" secondItem="PhD-ew-lfm" secondAttribute="bottom" constant="23" id="UKg-1i-axk"/>
+                            <constraint firstItem="qyY-iO-saF" firstAttribute="top" secondItem="Qgq-mw-vvR" secondAttribute="bottom" constant="33" id="UOR-IA-Jkz"/>
                             <constraint firstItem="NHW-mn-Cen" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="UaR-J5-hgX"/>
                             <constraint firstItem="PhD-ew-lfm" firstAttribute="width" secondItem="NHW-mn-Cen" secondAttribute="width" id="VpZ-vZ-PSx"/>
                             <constraint firstItem="qyY-iO-saF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Y7E-4h-pKU"/>
                             <constraint firstAttribute="trailing" secondItem="PhD-ew-lfm" secondAttribute="trailing" constant="20" id="bCc-02-V2a"/>
+                            <constraint firstItem="Qgq-mw-vvR" firstAttribute="top" secondItem="TPH-zp-GaO" secondAttribute="bottom" constant="29" id="cp9-n6-Nfd"/>
+                            <constraint firstItem="TPH-zp-GaO" firstAttribute="top" secondItem="80x-Bs-Aw2" secondAttribute="bottom" constant="16" id="cpC-t4-HdN"/>
+                            <constraint firstAttribute="trailing" secondItem="Nat-7h-6PQ" secondAttribute="trailing" constant="103" id="eiz-Uq-3CQ"/>
                             <constraint firstItem="Qgq-mw-vvR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="k0g-pG-2fj"/>
+                            <constraint firstItem="TPH-zp-GaO" firstAttribute="top" secondItem="80x-Bs-Aw2" secondAttribute="bottom" constant="16" id="pCS-z7-zZs"/>
+                            <constraint firstItem="Nat-7h-6PQ" firstAttribute="top" secondItem="NHW-mn-Cen" secondAttribute="bottom" constant="8" id="q5C-5k-lJ7"/>
                             <constraint firstAttribute="trailing" secondItem="qyY-iO-saF" secondAttribute="trailing" constant="20" id="qE5-Wy-zHh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="label" destination="qyY-iO-saF" id="F0B-MN-3WA"/>
+                        <outlet property="peopleLabel" destination="Nat-7h-6PQ" id="uJc-Du-v4H"/>
                         <outlet property="slider" destination="PhD-ew-lfm" id="lRo-eR-iTB"/>
                         <outlet property="textField" destination="NHW-mn-Cen" id="RgM-CU-Uk8"/>
+                        <outlet property="tipLabel" destination="80x-Bs-Aw2" id="7QC-EQ-Gq6"/>
+                        <outlet property="tipSlider" destination="TPH-zp-GaO" id="f6T-2I-M8X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

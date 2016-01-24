@@ -12,6 +12,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *peopleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
+@property (weak, nonatomic) IBOutlet UISlider *tipSlider;
 
 @end
 
@@ -19,18 +22,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)sliderValueChanged:(id)sender {
+    self.peopleLabel.text = [NSString stringWithFormat:@"Split between %.f people", self.slider.value];
+}
+- (IBAction)tipSliderValueChanged:(id)sender {
+    float tipAmount = self.tipSlider.value * 100;
+    self.tipLabel.text = [NSString stringWithFormat:@"%.f%% Tip", tipAmount];
+}
+
 - (IBAction)calculateSplitAmout:(id)sender {
     NSDecimalNumber *billAmount = [[NSDecimalNumber alloc] initWithString:self.textField.text];
     NSDecimalNumber *numberOfPeople = [[NSDecimalNumber alloc] initWithFloat:self.slider.value];
-    NSDecimalNumber *result = [billAmount decimalNumberByDividingBy:numberOfPeople];
-    NSLog(@"%@", result);
+    NSDecimalNumber *tipAmount = [[NSDecimalNumber alloc] initWithFloat:self.tipSlider.value + 1];
+    NSLog(@"%@", tipAmount);
+    NSDecimalNumber *result = [[billAmount decimalNumberByMultiplyingBy:tipAmount] decimalNumberByDividingBy:numberOfPeople];
     NSNumberFormatter *formatResult = [[NSNumberFormatter alloc] init];
     formatResult.numberStyle = NSNumberFormatterCurrencyStyle;
     self.label.text = [NSString stringWithFormat:@"Each person pays: %@", [formatResult stringFromNumber:result]];

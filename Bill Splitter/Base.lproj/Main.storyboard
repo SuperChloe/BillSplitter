@@ -1,25 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NHW-mn-Cen">
+                                <rect key="frame" x="20" y="20" width="280" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="acz-YO-Cx0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="PhD-ew-lfm">
+                                <rect key="frame" x="18" y="70" width="284" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BUc-Fb-UDx"/>
+                                </constraints>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgq-mw-vvR">
+                                <rect key="frame" x="117" y="132" width="87" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QGH-xp-Axi"/>
+                                    <constraint firstAttribute="width" constant="87" id="u3b-BN-WsN"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="calculateSplitAmout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VDh-Xw-jgd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyY-iO-saF">
+                                <rect key="frame" x="20" y="202" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NHW-mn-Cen" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="269-F1-c7t"/>
+                            <constraint firstItem="PhD-ew-lfm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="4gQ-mU-O19"/>
+                            <constraint firstItem="PhD-ew-lfm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BCw-mz-gGT"/>
+                            <constraint firstItem="qyY-iO-saF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D3M-Wv-b8o"/>
+                            <constraint firstItem="PhD-ew-lfm" firstAttribute="top" secondItem="NHW-mn-Cen" secondAttribute="bottom" constant="20" id="Exc-aC-svt"/>
+                            <constraint firstItem="Qgq-mw-vvR" firstAttribute="top" secondItem="PhD-ew-lfm" secondAttribute="bottom" constant="32" id="R6F-xN-M9a"/>
+                            <constraint firstAttribute="trailing" secondItem="NHW-mn-Cen" secondAttribute="trailing" constant="20" id="TSU-W1-2We"/>
+                            <constraint firstItem="qyY-iO-saF" firstAttribute="top" secondItem="Qgq-mw-vvR" secondAttribute="bottom" constant="40" id="UOR-IA-Jkz"/>
+                            <constraint firstItem="NHW-mn-Cen" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="UaR-J5-hgX"/>
+                            <constraint firstItem="PhD-ew-lfm" firstAttribute="width" secondItem="NHW-mn-Cen" secondAttribute="width" id="VpZ-vZ-PSx"/>
+                            <constraint firstItem="qyY-iO-saF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Y7E-4h-pKU"/>
+                            <constraint firstAttribute="trailing" secondItem="PhD-ew-lfm" secondAttribute="trailing" constant="20" id="bCc-02-V2a"/>
+                            <constraint firstItem="Qgq-mw-vvR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="k0g-pG-2fj"/>
+                            <constraint firstAttribute="trailing" secondItem="qyY-iO-saF" secondAttribute="trailing" constant="20" id="qE5-Wy-zHh"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="qyY-iO-saF" id="F0B-MN-3WA"/>
+                        <outlet property="slider" destination="PhD-ew-lfm" id="lRo-eR-iTB"/>
+                        <outlet property="textField" destination="NHW-mn-Cen" id="RgM-CU-Uk8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="130" y="310"/>
         </scene>
     </scenes>
 </document>

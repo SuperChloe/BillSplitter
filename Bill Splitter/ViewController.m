@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UILabel *label;
@@ -22,7 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    self.textField.delegate = self;
 
 }
 
@@ -32,13 +34,35 @@
 }
 - (IBAction)sliderValueChanged:(id)sender {
     self.peopleLabel.text = [NSString stringWithFormat:@"Split between %.f people", self.slider.value];
+    NSDecimalNumber *billAmount = [[NSDecimalNumber alloc] initWithString:self.textField.text];
+    NSDecimalNumber *numberOfPeople = [[NSDecimalNumber alloc] initWithFloat:self.slider.value];
+    NSDecimalNumber *tipAmount = [[NSDecimalNumber alloc] initWithFloat:self.tipSlider.value + 1];
+    NSLog(@"%@", tipAmount);
+    NSDecimalNumber *result = [[billAmount decimalNumberByMultiplyingBy:tipAmount] decimalNumberByDividingBy:numberOfPeople];
+    NSNumberFormatter *formatResult = [[NSNumberFormatter alloc] init];
+    formatResult.numberStyle = NSNumberFormatterCurrencyStyle;
+    self.label.text = [NSString stringWithFormat:@"Each person pays: %@", [formatResult stringFromNumber:result]];
 }
 - (IBAction)tipSliderValueChanged:(id)sender {
-    float tipAmount = self.tipSlider.value * 100;
-    self.tipLabel.text = [NSString stringWithFormat:@"%.f%% Tip", tipAmount];
+    float tipAmountValue = self.tipSlider.value * 100;
+    self.tipLabel.text = [NSString stringWithFormat:@"%.f%% Tip", tipAmountValue];
+    NSDecimalNumber *billAmount = [[NSDecimalNumber alloc] initWithString:self.textField.text];
+    NSDecimalNumber *numberOfPeople = [[NSDecimalNumber alloc] initWithFloat:self.slider.value];
+    NSDecimalNumber *tipAmount = [[NSDecimalNumber alloc] initWithFloat:self.tipSlider.value + 1];
+    NSLog(@"%@", tipAmount);
+    NSDecimalNumber *result = [[billAmount decimalNumberByMultiplyingBy:tipAmount] decimalNumberByDividingBy:numberOfPeople];
+    NSNumberFormatter *formatResult = [[NSNumberFormatter alloc] init];
+    formatResult.numberStyle = NSNumberFormatterCurrencyStyle;
+    self.label.text = [NSString stringWithFormat:@"Each person pays: %@", [formatResult stringFromNumber:result]];
 }
 
-- (IBAction)calculateSplitAmout:(id)sender {
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.textField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     NSDecimalNumber *billAmount = [[NSDecimalNumber alloc] initWithString:self.textField.text];
     NSDecimalNumber *numberOfPeople = [[NSDecimalNumber alloc] initWithFloat:self.slider.value];
     NSDecimalNumber *tipAmount = [[NSDecimalNumber alloc] initWithFloat:self.tipSlider.value + 1];
